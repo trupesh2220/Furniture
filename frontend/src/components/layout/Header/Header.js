@@ -123,7 +123,7 @@ function Header() {
       </div>
       <div className="border-b-2"></div>
       {layer && (
-        <div className="w-full h-full  overflow-hidden fixed   top-0 left-0 transition duration-500    bg-black opacity-90">
+        <div className="w-full h-full  overflow-hidden fixed   top-0 left-0 transition duration-500    bg-[black] opacity-90">
           <div className="flex justify-center items-center w-full ">
             <div
               className=" px-8 flex justify-end md:w-[60%] mx-auto h-[50%] absolute items-end text-white"
