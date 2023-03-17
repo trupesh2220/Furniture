@@ -1,0 +1,12 @@
+{
+    "turboConsoleLog.logMessagePrefix": "",
+    "turboConsoleLog.delimiterInsideMessage": "",
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ]
+}
