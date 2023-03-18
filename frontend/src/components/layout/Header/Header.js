@@ -43,17 +43,17 @@ function Header() {
         <div className="container mx-auto">
           <div className={`hidden md:block`}>
             <div
-              className=" flex justify-between md:visible invisible  gap-10 md:text-[11px] lg:text-[15px] 
+              className=" flex  justify-between md:visible invisible  gap-10 md:text-[11px] lg:text-[15px] 
            h-full"
             >
               <div className=" py-2">
                 <img
-                  className="hover:scale-90 transition-all duration-300"
+                  className="hover:scale-90 transition-all duration-300 animate-"
                   src={asset4}
                   alt=""
                 />
               </div>
-              <div className="flex  gap-5  justify-center items-center">
+              <div className="flex  gap-5 justify-center items-center">
                 
                  <MainHeader name={"HOME"} />
                  <MainHeader name={"PAGES"} />

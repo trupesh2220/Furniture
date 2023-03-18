@@ -7,7 +7,7 @@ function MobileMenuHeader(props) {
   return (
     <>
       <div>
-        <div className="flex justify-between items-center ">
+        <div className="flex justify-between items-center bg-white">
           <div className="">{props.name}</div>
           <div>
             <AiFillCaretDown />

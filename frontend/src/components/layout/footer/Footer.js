@@ -4,6 +4,8 @@ import { GrFacebook } from "react-icons/gr";
 import { FaFacebookF } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { BsWhatsapp, BsLinkedin } from "react-icons/bs";
+import Icon from "../icons/Icon";
+import PaddingAndColor from "../padingAndColors/PaddingAndColor";
 
 function Footer() {
   return (
@@ -11,48 +13,57 @@ function Footer() {
       <div className="bg-[#000000]">
         <div className="py-28">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 gap-7 sm:grid-cols-4 px-7 text-white text-2xl font-bold">
+            <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-4 px-7 text-white text-2xl font-bold">
               <div className="text-center sm:text-start">
-                <div>Contact Info </div>
+                <PaddingAndColor>Contact Info </PaddingAndColor>
                 <div className="text-base font-light space-y-3 pt-10">
-                  <div>123 Street, Old Trafford, NewYork, USA</div>
-                  <div> info@sitename.com</div>
-                  <div> + 457 789 789 65</div>
+                  <PaddingAndColor>123 Street, Old Trafford, NewYork, USA</PaddingAndColor>
+                  <PaddingAndColor> info@sitename.com</PaddingAndColor>
+                  <PaddingAndColor> + 457 789 789 65</PaddingAndColor>
                   <div className="flex justify-around  sm:justify-between sm:w-[80%]">
-                    <div className="w-12 h-12 border-2 transition-all duration-300 hover:scale-110 scale-95 hover:border-[#ff324d] hover:text-[#ff324d] border-white text-white flex justify-center items-center rounded-full"><FaFacebookF /></div>
-                    <div className="w-12 h-12 border-2 transition-all duration-300 hover:scale-110 scale-95 hover:border-[#ff324d] hover:text-[#ff324d] border-white text-white flex justify-center items-center rounded-full"><BsInstagram /></div>
-                    <div className="w-12 h-12 border-2 transition-all duration-300 hover:scale-110 scale-95 hover:border-[#ff324d] hover:text-[#ff324d] border-white text-white flex justify-center items-center rounded-full"><BsWhatsapp /></div>
-                    <div className="w-12 h-12 border-2 transition-all duration-300 hover:scale-110 scale-95 hover:border-[#ff324d] hover:text-[#ff324d] border-white text-white flex justify-center items-center rounded-full"><BsLinkedin /></div>
+                    <Icon>
+                      <FaFacebookF />
+                    </Icon>
+
+                    <Icon>
+                      <BsInstagram />
+                    </Icon>
+                    <Icon>
+                      <BsWhatsapp />
+                    </Icon>
+                    <Icon>
+                      <BsLinkedin />
+                    </Icon>
                   </div>
                 </div>
               </div>
               <div className="text-center sm:text-start">
-                <div>Useful Links </div>
+                <PaddingAndColor>Useful Links </PaddingAndColor>
                 <div className="text-base font-light space-y-3 pt-10">
-                  <div>About Us</div>
-                  <div> FAQ</div>
-                  <div> Location</div>
-                  <div> Affiliates</div>
-                  <div> Contact</div>
+                  <PaddingAndColor>About Us</PaddingAndColor>
+                  <PaddingAndColor>FAQ</PaddingAndColor>
+                  <PaddingAndColor>Location</PaddingAndColor>
+                  <PaddingAndColor>Affiliates</PaddingAndColor>
+                  <PaddingAndColor>Contact</PaddingAndColor>
                 </div>
               </div>
               <div className="text-center sm:text-start">
-                <div>My Account </div>
+                <PaddingAndColor>My Account </PaddingAndColor>
                 <div className="text-base font-light space-y-3 pt-10">
-                  <div>About Us</div>
-                  <div> FAQ</div>
-                  <div> Location</div>
-                  <div> Affiliates</div>
-                  <div> Contact</div>
+                  <PaddingAndColor>About Us</PaddingAndColor>
+                  <PaddingAndColor>FAQ</PaddingAndColor>
+                  <PaddingAndColor>Location</PaddingAndColor>
+                  <PaddingAndColor>Affiliates</PaddingAndColor>
+                  <PaddingAndColor>Contact</PaddingAndColor>
                 </div>
               </div>
               <div className="text-center sm:text-start">
-                <div>Subscribe Our Newsletter </div>
+                <PaddingAndColor>Subscribe Our Newsletter </PaddingAndColor>
                 <div className="text-base font-light space-y-3 pt-10">
-                  <div className="text-justify">
+                  <PaddingAndColor className="text-justify">
                     If you want to get an email from us every time we have a new
                     special offer, then sign up here!
-                  </div>
+                  </PaddingAndColor>
                   <div className="w-full h-12 p-2 rounded-full bg-white flex justify-between items-center ">
                     <input
                       className="outline-none text-black pl-5 w-[80%] "

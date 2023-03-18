@@ -13,7 +13,7 @@ function SubHeader(props) {
   return (
     <>
       <div className="group  group-hover:transition-all pt-1 bg-transparent  transition-all duration-300 group-hover:duration-300 group-hover:visible absolute   top-[200%] left-[-10%]    group-hover:opacity-100 group-hover:top-[100%] invisible  shadow-2xl  rounded-lg  w-60   opacity-0  font-semibold ">
-        <div className="pl-4 border-b-2 border-l-2 border-r-2  border-[#ff324d] bg-white">
+        <div className="pl-4 border-b-2 shadow-2xl  border-l-2 border-r-2  border-[#ff324d] bg-white">
           <SubHeaderLine name={"Home1"} />
           <SubHeaderLine name={"Home2"} />
           <SubHeaderLine name={"Home3"} />
