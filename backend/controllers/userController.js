@@ -5,7 +5,7 @@ const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 
-// todo register user
+// todo common register user
 exports.registerUser = catchAsyncError(async (req, res, next) => {
   const { name, email, password } = req.body;
   const user = await User.create({
@@ -17,7 +17,7 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
   sendToken(user, 201, res);
 });
 
-// todo logout user
+// todo common logout user
 exports.logout = catchAsyncError(async (req, res, next) => {
   console.log(res.cookie("token"));
   res.cookie("token", null, {
@@ -30,7 +30,7 @@ exports.logout = catchAsyncError(async (req, res, next) => {
   });
 });
 
-// todo login user
+// todo common login user
 exports.loginUser = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -47,7 +47,7 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
-// todo forgot password
+// todo common forgot password
 exports.forgotPassword = catchAsyncError(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
@@ -78,7 +78,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next) => {
   }
 });
 
-// todo reset password
+// todo common reset password
 exports.resetPassword = catchAsyncError(async (req, res, next) => {
   const resetPasswordToken = crypto
     .createHash("sha256")
@@ -105,8 +105,7 @@ exports.resetPassword = catchAsyncError(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
-//todo get user details
-
+//todo common get user details
 exports.getUserDetails = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.user.id);
 
@@ -116,25 +115,7 @@ exports.getUserDetails = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//todo update user password
-
-// exports.updatePassword = catchAsyncError(async (req, res, next) => {
-//   const user = await User.findById(req.user.id).select("+password");
-//   const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
-//   if (!isPasswordMatched) {
-//     return next(new ErrorHandler("Invalid email and password", 401));
-//   }
-
-//   if (req.body.newPassword !== req.body.confirmPassword) {
-//     return next(new ErrorHandler("Password does not matched", 401));
-//   }
-//   user.password = req.body.newPassword
-//   await user.save()
-
-//   sendToken(user,200,res)
-// });
-
-// update User password
+//todo common updatePassword
 exports.updatePassword = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.user.id).select("+password");
 
@@ -155,35 +136,71 @@ exports.updatePassword = catchAsyncError(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
+//todo common updaterProfile
 exports.updateProfile = catchAsyncError(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,
     email: req.body.email,
   };
-  const user =await User.findByIdAndUpdate(req.user.id, newUserData, {
+
+  const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
     new: true,
     runValidators: true,
     useFindAndModify: false,
   });
   res.status(200).json({
-    success:"true"
-  })
+    success: "true",
+  });
 });
-exports.getAllUser = catchAsyncError(async (req, res, next) => {
-  const users =await User.find()
-  res.status(200).json({
-    status:"true",
-    users
-  })
-})
 
+// todo common getAllUser
+exports.getAllUser = catchAsyncError(async (req, res, next) => {
+  const users = await User.find();
+  res.status(200).json({
+    status: "true",
+    users,
+  });
+});
+
+// todo common updateUserRole
 exports.getSingleUser = catchAsyncError(async (req, res, next) => {
-  const user =await User.findById(req.params.id)
+  const user = await User.findById(req.params.id);
   if (!user) {
-    return next(new ErrorHandler("user is not exist ",404))
+    return next(new ErrorHandler("user is not exist ", 404));
   }
   res.status(200).json({
-    status:"true",
-    user
-  })
-})
+    status: "true",
+    user,
+  });
+});
+
+// todo admin updateUserRole
+exports.updateUserRole = catchAsyncError(async (req, res, next) => {
+  const newUserData = {
+    name: req.body.name,
+    email: req.body.email,
+    role: req.body.role,
+  };
+
+  const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+    new: true,
+    runValidators: true,
+    useFindAndModify: false,
+  });
+  res.status(200).json({
+    success: "true",
+  });
+});
+
+// todo admin deleteUser
+exports.deleteUser = catchAsyncError(async (req, res, next) => {
+  const user = await User.findByIdAndDelete(req.params.id);
+  if (!user) {
+    return next(
+      new ErrorHandler(`user does not exist with id:${req.params.id}`)
+    );
+  }
+  res.status(200).json({
+    success: "true",
+  });
+});
