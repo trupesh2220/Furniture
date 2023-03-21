@@ -4,7 +4,7 @@ const ApiFeature = require("../utils/ApiFeature");
 const ErrorHandler = require("../utils/ErrorHandler");
 exports.getAllProduct = catchAsyncError(async (req, res, next) => {
   const resultPerPage = 5;
-  const productCount = await Product.countDocuments()
+  const productCount = await Product.countDocuments();
   const apiFeature = new ApiFeature(Product.find(), req.query)
     .search()
     .filter()
@@ -13,11 +13,12 @@ exports.getAllProduct = catchAsyncError(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     product,
-    productCount
+    productCount,
   });
 });
 
 exports.createProduct = catchAsyncError(async (req, res, next) => {
+  req.body.user = req.user.id;
   let product = await Product.create(req.body);
   res.status(200).json({ status: "success", product });
 });

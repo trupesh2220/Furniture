@@ -13,7 +13,7 @@ function Header() {
 
   const [mobileMenu, setMobileMenu] = useState(false);
   const [layer, setLayer] = useState(false);
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
   const [mobileButton, setMobileButton] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
   const [header, setHeader] = useState([
@@ -39,8 +39,8 @@ function Header() {
   };
   return (
     <div>
-      <div onScroll={handleScroll} className="top-0 fixed bg-white w-full">
-        <div className="container mx-auto">
+      <div onScroll={handleScroll} className="top-0  fixed bg-white w-full">
+        <div className="container md:px-10 mx-auto">
           <div className={`hidden md:block`}>
             <div
               className=" flex  justify-between md:visible invisible  gap-10 md:text-[11px] lg:text-[15px] 
@@ -145,7 +145,7 @@ function Header() {
               <div>
                 <div
                   className="text-white  text-[25px]   transition-all duration-300 hover:text-[#ff324d]"
-                  onClick={() => setShow(!show)}
+                  // onClick={() => setShow(!show)}
                 >
                   <BiSearchAlt2 />
                 </div>

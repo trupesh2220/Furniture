@@ -1,6 +1,5 @@
 import React from "react";
 import { MdAttachEmail } from "react-icons/md";
-import { GrFacebook } from "react-icons/gr";
 import { FaFacebookF } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { BsWhatsapp, BsLinkedin } from "react-icons/bs";
@@ -12,15 +11,16 @@ function Footer() {
     <>
       <div className="bg-[#000000]">
         <div className="py-28">
-          <div className="container mx-auto">
-            <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-4 px-7 text-white text-2xl font-bold">
-              <div className="text-center sm:text-start">
+          <div className="container md:cpx-10 mx-auto">
+            <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg lg:grid-cols-3 xl:grid-cols-4 px-7 text-white text-2xl font-bold">
+
+              <div className="text-center md:text-start">
                 <PaddingAndColor>Contact Info </PaddingAndColor>
                 <div className="text-base font-light space-y-3 pt-10">
                   <PaddingAndColor>123 Street, Old Trafford, NewYork, USA</PaddingAndColor>
                   <PaddingAndColor> info@sitename.com</PaddingAndColor>
                   <PaddingAndColor> + 457 789 789 65</PaddingAndColor>
-                  <div className="flex justify-around  sm:justify-between sm:w-[80%]">
+                  <div className="flex justify-around  md:justify-between  md:w-[80%]">
                     <Icon>
                       <FaFacebookF />
                     </Icon>
@@ -37,7 +37,7 @@ function Footer() {
                   </div>
                 </div>
               </div>
-              <div className="text-center sm:text-start">
+              <div className="text-center md:text-start">
                 <PaddingAndColor>Useful Links </PaddingAndColor>
                 <div className="text-base font-light space-y-3 pt-10">
                   <PaddingAndColor>About Us</PaddingAndColor>
@@ -47,7 +47,7 @@ function Footer() {
                   <PaddingAndColor>Contact</PaddingAndColor>
                 </div>
               </div>
-              <div className="text-center sm:text-start">
+              <div className="text-center md:text-start">
                 <PaddingAndColor>My Account </PaddingAndColor>
                 <div className="text-base font-light space-y-3 pt-10">
                   <PaddingAndColor>About Us</PaddingAndColor>
@@ -57,7 +57,7 @@ function Footer() {
                   <PaddingAndColor>Contact</PaddingAndColor>
                 </div>
               </div>
-              <div className="text-center sm:text-start">
+              <div className="text-center md:text-start">
                 <PaddingAndColor>Subscribe Our Newsletter </PaddingAndColor>
                 <div className="text-base font-light space-y-3 pt-10">
                   <PaddingAndColor className="text-justify">
