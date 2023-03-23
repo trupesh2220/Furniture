@@ -1,12 +1,11 @@
 import React from "react";
+import Slider from "../layout/slider/Slider";
 
 function Home() {
   return (
     <div>
-      <div className="text-center">Home</div>
-      <div className="container mx-auto">
-        
-      </div>
+      {/* <Slider/> */}
+      <Slider/>
     </div>
   );
 }

@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema({
     required: [true, "Please Enter Product Price"],
     maxLength: [8, "Prise is Not Exceed 8 Characters"],
   },
-  rating: {
+  ratings: {
     type: Number,
     default: 0,
   },
@@ -41,20 +41,25 @@ const productSchema = new mongoose.Schema({
   },
   reviews: [
     {
+      user: {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        required: true,
+      },
       name: { type: String, required: true },
       rating: { type: String, required: true },
       comment: { type: String, required: true },
     },
   ],
-  user :{
-    type:mongoose.Schema.ObjectId,
-    ref:"User",
-    required:true
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+    required: true,
   },
-  createdAT:{
-    type:Date,
-    default:Date.now
-  }
+  createdAT: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model("Product",productSchema)
+module.exports = mongoose.model("Product", productSchema);

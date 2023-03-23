@@ -4,7 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { BsWhatsapp, BsLinkedin } from "react-icons/bs";
 import Icon from "../icons/Icon";
-import PaddingAndColor from "../padingAndColors/PaddingAndColor";
+import PaddingAndColor from "../colorHover/ColorHover";
 
 function Footer() {
   return (

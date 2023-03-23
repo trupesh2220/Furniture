@@ -5,7 +5,7 @@ const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 
-// todo common register user
+//  * common register user
 exports.registerUser = catchAsyncError(async (req, res, next) => {
   const { name, email, password } = req.body;
   const user = await User.create({
@@ -17,7 +17,7 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
   sendToken(user, 201, res);
 });
 
-// todo common logout user
+//  * common logout user
 exports.logout = catchAsyncError(async (req, res, next) => {
   console.log(res.cookie("token"));
   res.cookie("token", null, {
@@ -30,7 +30,7 @@ exports.logout = catchAsyncError(async (req, res, next) => {
   });
 });
 
-// todo common login user
+//  * common login user
 exports.loginUser = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -47,7 +47,7 @@ exports.loginUser = catchAsyncError(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
-// todo common forgot password
+//  * common forgot password
 exports.forgotPassword = catchAsyncError(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
@@ -78,7 +78,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next) => {
   }
 });
 
-// todo common reset password
+//  * common reset password
 exports.resetPassword = catchAsyncError(async (req, res, next) => {
   const resetPasswordToken = crypto
     .createHash("sha256")
@@ -105,7 +105,7 @@ exports.resetPassword = catchAsyncError(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
-//todo common get user details
+//  * common get user details
 exports.getUserDetails = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.user.id);
 
@@ -115,7 +115,8 @@ exports.getUserDetails = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//todo common updatePassword
+//  * common updatePassword
+// todo task pending 
 exports.updatePassword = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.user.id).select("+password");
 
@@ -136,7 +137,7 @@ exports.updatePassword = catchAsyncError(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
-//todo common updaterProfile
+//  * common updateProfile
 exports.updateProfile = catchAsyncError(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,
@@ -153,7 +154,7 @@ exports.updateProfile = catchAsyncError(async (req, res, next) => {
   });
 });
 
-// todo common getAllUser
+//  * common getAllUser
 exports.getAllUser = catchAsyncError(async (req, res, next) => {
   const users = await User.find();
   res.status(200).json({
@@ -162,7 +163,7 @@ exports.getAllUser = catchAsyncError(async (req, res, next) => {
   });
 });
 
-// todo common updateUserRole
+//  * common grtSingleUser
 exports.getSingleUser = catchAsyncError(async (req, res, next) => {
   const user = await User.findById(req.params.id);
   if (!user) {
@@ -174,7 +175,7 @@ exports.getSingleUser = catchAsyncError(async (req, res, next) => {
   });
 });
 
-// todo admin updateUserRole
+//  * admin updateUserRole
 exports.updateUserRole = catchAsyncError(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,
@@ -192,7 +193,7 @@ exports.updateUserRole = catchAsyncError(async (req, res, next) => {
   });
 });
 
-// todo admin deleteUser
+//  * admin deleteUser
 exports.deleteUser = catchAsyncError(async (req, res, next) => {
   const user = await User.findByIdAndDelete(req.params.id);
   if (!user) {
@@ -200,6 +201,8 @@ exports.deleteUser = catchAsyncError(async (req, res, next) => {
       new ErrorHandler(`user does not exist with id:${req.params.id}`)
     );
   }
+  // await user.remove();
+
   res.status(200).json({
     success: "true",
   });
