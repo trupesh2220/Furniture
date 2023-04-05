@@ -1,0 +1,8 @@
+@media(max-width:767px){
+    .p{
+        position: relative;
+    }
+}
+@media(min-width:768px){
+    .p{position: unset;}
+}

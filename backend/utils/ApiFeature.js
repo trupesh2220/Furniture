@@ -16,6 +16,7 @@ class ApiFeature {
     return this;
   }
 
+
   filter() {
     const queryCopy = { ...this.queryStr };
     const removeFields = ["keyword", "limit", "page"];
@@ -27,6 +28,7 @@ class ApiFeature {
     return this;
   }
 
+  
   pagination(resultPerPage) {
     const currentPage = Number(this.queryStr.page) || 1;
     const skip = resultPerPage * (currentPage - 1);

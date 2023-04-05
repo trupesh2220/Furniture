@@ -4,7 +4,7 @@ function Filed(props) {
   return (
     <>
       <div className="relative group">
-        <div className="w-full  h-full py-2 relative before:absolute before:transition-all before:duration-300 before:w-0 group-hover:before:w-full before:h-1 before:bottom-0 before:left-[50%] group-hover:before:left-0 before:bg-firstColor">{props.filed1}</div>
+        <div className="w-full  h-full py-2   font-bold"><span className="relative before:absolute before:transition-all before:duration-300 before:w-0 group-hover:before:w-full before:h-1  before:left-[50%] group-hover:before:left-0 before:bg-firstColor before:top-5">{props.filed1}</span></div>
         <div
           className={`absolute top-[100%] l-0 w-[260px] space-y-4 py-3  shadow-2xl pl-3 border-l-2 transition-all duration-300 bg-white scale-0 group-hover:scale-100 origin-bottom z-10`}
           // style={{position:"unset",width:"100%"}}

@@ -2,15 +2,41 @@ import React, { useState } from "react";
 import Filed from "./Filed";
 import MegaFiled from "./MegaFiled";
 import { BsSearch, BsFillCartCheckFill } from "react-icons/bs";
+import {AiOutlineMenu} from "react-icons/ai";
+import {GrFormClose} from "react-icons/gr";
 
-function WebNavbar() {
+function MobileNavbar() {
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const setMobileM = ()=>{
+    setMobileMenu(!mobileMenu)
+  }
   return (
     <div>
       <div className=" flex justify-between relative">
         <div>
           <img src={require("../../../assets/4.png")} alt="" />
         </div>
-        <div className="flex gap-3 justify-center  items-center ">
+
+        <div className="flex items-center justify-center gap-5 ">
+          <div className="hover:text-firstColor font-extrabold text-[23px]">
+            <BsSearch />
+          </div>
+          <div className="hover:text-firstColor text-[23px] relative group">
+            <BsFillCartCheckFill />
+            <div className="border-2 border-black w-5 h-5 rounded-full absolute flex justify-center items-center text-[10px] top-[-50%] left-[50%] group-hover:border-firstColor">
+              2
+            </div>
+          </div>
+          {!mobileMenu && <div onClick={setMobileM } className="hover:text-firstColor font-extrabold text-[23px]">
+            <AiOutlineMenu />
+          </div>}
+          {mobileMenu && <div onClick={setMobileM } className="hover:text-firstColor font-extrabold text-[23px]">
+            <GrFormClose />
+          </div>}
+        </div>
+      </div>
+      {mobileMenu && (
+        <div  className="flex-col gap-3 justify-center  items-center ">
           <Filed
             width={"60"}
             filed1={"HOME"}
@@ -81,18 +107,9 @@ function WebNavbar() {
             filed3={"Contact us With Hr"}
           />
         </div>
-        <div className="flex items-center justify-center gap-5 ">
-          <div className="hover:text-firstColor font-extrabold text-[23px]">
-            <BsSearch />
-          </div>
-          <div className="hover:text-firstColor text-[23px] relative group">
-            <BsFillCartCheckFill />
-            <div className="border-2 border-black w-5 h-5 rounded-full absolute flex justify-center items-center text-[10px] top-[-50%] left-[50%] group-hover:border-firstColor">2</div>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }
 
-export default WebNavbar;
+export default MobileNavbar;

@@ -2,6 +2,9 @@ const catchAsyncError = require("../middleware/catchAsyncError");
 const Product = require("../model/productModel");
 const ApiFeature = require("../utils/ApiFeature");
 const ErrorHandler = require("../utils/ErrorHandler");
+
+
+
 // *  getAllProduct
 exports.getAllProduct = catchAsyncError(async (req, res, next) => {
   const resultPerPage = 5;
@@ -17,6 +20,7 @@ exports.getAllProduct = catchAsyncError(async (req, res, next) => {
     productCount,
   });
 });
+
 
 // *  createProduct
 exports.createProduct = catchAsyncError(async (req, res, next) => {
