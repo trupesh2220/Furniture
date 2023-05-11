@@ -8,7 +8,7 @@ const sendEmail = async (options) => {
       pass: "xdzqwwhdmipnrcug",
     },
   });
-
+  
   const mailOptions = {
     from: "trupesh220@gamail.com",
     to: options.email,

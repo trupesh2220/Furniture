@@ -6,6 +6,7 @@ import { BiDotsHorizontalRounded } from "react-icons/bi";
 import Header from "./components/layout/header/Header";
 import Loader from "./components/layout/loader/Loader";
 import Slider from "./components/layout/slider/Slider";
+import Product from "./components/products/Product";
 
 function App() {
   const [preLoader, setPreLoader] = useState(true);
@@ -23,6 +24,7 @@ function App() {
         <div className="font-">
           <Header />
           <Home />
+          <Product />
           <Footer />
         </div>
       )}
